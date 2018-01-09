@@ -23,3 +23,10 @@ C:\Users\Basedd\Desktop\BashSoft sans simpleList - Copy\BashSoft\obj\Debug\BashS
 C:\Users\Basedd\Desktop\BashSoft sans simpleList - Copy\BashEmulator\BashSoft\bin\Debug\BashSoft.exe.config
 C:\Users\Basedd\Desktop\BashSoft sans simpleList - Copy\BashEmulator\BashSoft\obj\Debug\BashSoft.exe
 C:\Users\Basedd\Desktop\BashSoft sans simpleList - Copy\BashEmulator\BashSoft\obj\Debug\BashSoft.pdb
+C:\Users\Nikolay\Documents\Visual Studio 2015\Projects\BashEmulator\BashSoft\obj\Debug\BashSoft.csprojResolveAssemblyReference.cache
+C:\Users\Nikolay\Documents\Visual Studio 2015\Projects\BashEmulator\BashSoft\obj\Debug\BashSoft.csproj.CoreCompileInputs.cache
+C:\Users\Nikolay\Documents\Visual Studio 2015\Projects\BashEmulator\BashSoft\obj\Debug\BashSoft.exe
+C:\Users\Nikolay\Documents\Visual Studio 2015\Projects\BashEmulator\BashSoft\obj\Debug\BashSoft.pdb
+C:\Users\Nikolay\Documents\Visual Studio 2015\Projects\BashEmulator\BashSoft\bin\Debug\BashSoft.exe.config
+C:\Users\Nikolay\Documents\Visual Studio 2015\Projects\BashEmulator\BashSoft\bin\Debug\BashSoft.exe
+C:\Users\Nikolay\Documents\Visual Studio 2015\Projects\BashEmulator\BashSoft\bin\Debug\BashSoft.pdb

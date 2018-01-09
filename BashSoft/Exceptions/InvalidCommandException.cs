@@ -10,7 +10,7 @@ namespace BashSoft.Exceptions
     {
         public void DisplayInvalidCommandException(string input)
         {
-            OutputWriter.WriteMessageOnNewLine($"The command {input} is invalid");
+            OutputWriter.DisplayException($"The command {input} is invalid");
         }
 
         public InvalidCommandException()
@@ -18,9 +18,9 @@ namespace BashSoft.Exceptions
 
         }
         public InvalidCommandException(string input)
-            :base (input) 
+            :base(input)
         {
-
+            
         }
     }
 }

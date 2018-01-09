@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace BashSoft.Contracts
 {
-    public interface IDirectoryTraverser
+    public interface IContentComparer
     {
-        void TraverseDirectory(int depth);
+        void CompareContent(string userOutputPath, string expectedOutputPath);
     }
 }

@@ -6,7 +6,7 @@ namespace BashSoft
 {
     internal class CompareFilesCommand : Command
     {
-        public CompareFilesCommand(string input, string[] data, Tester judge, StudentRepository repository, IDirectoryManager manager) : base(input, data, judge, repository, manager)
+        public CompareFilesCommand(string input, string[] data, IContentComparer judge, IDirectoryManager manager) : base(input, data, judge, manager)
         {
         }
 
@@ -21,7 +21,7 @@ namespace BashSoft
             }
             else
             {
-                throw new InvalidCommandException();
+                throw new InvalidCommandException(this.Input);
             }
         }
     }

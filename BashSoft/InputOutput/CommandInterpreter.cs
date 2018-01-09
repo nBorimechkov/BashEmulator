@@ -15,13 +15,11 @@ namespace BashSoft
     {
         private IContentComparer judge;
         private IDirectoryManager manager;
-        private IDatabase repository;
 
-        public CommandInterpreter(IContentComparer judge, IDirectoryManager manager, IDatabase repository)
+        public CommandInterpreter(IContentComparer judge, IDirectoryManager manager)
         {
             this.judge = judge;
             this.manager = manager;
-            this.repository = repository;
         }
 
         public void InterpretCommand(string input)
@@ -34,9 +32,9 @@ namespace BashSoft
                 IExecutable command = this.ParseCommand(input, commandName, data);
                 command.Execute();
             }
-            catch (Exception ex)
+            catch (InvalidCommandException ex)
             {
-                OutputWriter.DisplayException(ex.Message);
+                OutputWriter.DisplayException($"The command {ex.Message} is invalid.");
             } 
         }
 
@@ -45,31 +43,20 @@ namespace BashSoft
             switch (command)
             {
                 case "open":
-                    return new DropDatabaseCommand(input, data, this.judge, this.repository, this.manager);
+                    return new OpenFileCommand(input, data, this.judge, this.manager);
+                case "rm":
+                    return new DeleteCommand(input, data, this.judge, this.manager);
                 case "mkdir":
-                    return new MakeDirectoryCommand(input, data, this.judge, this.repository, this.manager);
-                case "deldir":
-                    return new DeleteDirectoryCommand(input, data, this.judge, this.repository, this.manager);
+                    return new MakeDirectoryCommand(input, data, this.judge, this.manager);
                 case "ls":
-                    return new TraverseFoldersCommand(input, data, this.judge, this.repository, this.manager);
+                    return new TraverseFoldersCommand(input, data, this.judge, this.manager);
                 case "cmp":
-                    return new CompareFilesCommand(input, data, this.judge, this.repository, this.manager);
-                case "cdrel":
-                    return new ChangeRelativePathCommand(input, data, this.judge, this.repository, this.manager);
-                case "cdabs":
-                    return new ChangeAbsolutePathCommand(input, data, this.judge, this.repository, this.manager);
-                case "readdb":
-                    return new ReadDatabaseCommand(input, data, this.judge, this.repository, this.manager);
-                case "dropdb":
-                    return new DropDatabaseCommand(input, data, this.judge, this.repository, this.manager);
+                    return new CompareFilesCommand(input, data, this.judge, this.manager);
+                case "cd":
+                    return new ChangePathCommand(input, data, this.judge, this.manager);
                 case "help":
-                    return new GetHelpCommand(input, data, this.judge, this.repository, this.manager);
+                    return new GetHelpCommand(input, data, this.judge, this.manager);
                 case "show":
-                    return new ShowCourseCommand(input, data, this.judge, this.repository, this.manager);
-                case "filter":
-                    return new PrintFilteredStudentsCommand(input, data, this.judge, this.repository, this.manager);
-                case "order":
-                    return new PrintOrderedStudentsCommand(input, data, this.judge, this.repository, this.manager);
                 //case "decorder":
                 //    tryfdsfds(input, data);
                 //    break;

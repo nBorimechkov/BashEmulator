@@ -6,7 +6,7 @@ namespace BashSoft
 {
     internal class TraverseFoldersCommand : Command
     {
-        public TraverseFoldersCommand(string input, string[] data, Tester judge, StudentRepository repository, IDirectoryManager manager) : base(input, data, judge, repository, manager)
+        public TraverseFoldersCommand(string input, string[] data, IContentComparer judge, IDirectoryManager manager) : base(input, data, judge, manager)
         {
         }
 
@@ -14,20 +14,11 @@ namespace BashSoft
         {
             if (this.Data.Length == 1)
             {
-                this.Manager.TraverseDirectory(0);
-            }
-            else if (this.Data.Length == 2)
-            {
-                int depth;
-                bool hasParsed = int.TryParse(this.Data[1], out depth);
-                if (hasParsed)
-                {
-                    this.Manager.TraverseDirectory(depth);
-                }
+                this.Manager.TraverseDirectory();
             }
             else
             {
-                throw new InvalidCommandException();
+                throw new InvalidCommandException(this.Input);
             }
         }
     }

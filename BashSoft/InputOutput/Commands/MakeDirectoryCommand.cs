@@ -10,7 +10,7 @@ namespace BashSoft.InputOutput.Commands
 {
     class MakeDirectoryCommand : Command
     {
-        public MakeDirectoryCommand(string input, string[] data, Tester judge, StudentRepository repository, IDirectoryManager manager) : base(input, data, judge, repository, manager)
+        public MakeDirectoryCommand(string input, string[] data, IContentComparer judge, IDirectoryManager manager) : base(input, data, judge, manager)
         {
 
         }

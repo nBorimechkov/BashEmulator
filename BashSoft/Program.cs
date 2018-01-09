@@ -13,8 +13,7 @@ namespace BashSoft
         {
             IContentComparer tester = new Tester();
             IDirectoryManager ioManager = new IOManager();
-            IDatabase repo = new StudentRepository(new RepositoryFilter(), new RepositorySorter());
-            IInterpreter currentInterpreter = new CommandInterpreter(tester, ioManager, repo);
+            IInterpreter currentInterpreter = new CommandInterpreter(tester, ioManager);
             IReader reader = new InputReader(currentInterpreter);
 
             reader.StartReadingCommands();

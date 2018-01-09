@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace BashSoft.Contracts
 {
-    public interface IDirectoryCreator
+    public interface IDirectoryManager : IDirectoryChanger, IDirectoryCreator, IDirectoryTraverser
     {
-        void CreateDirectoryInCurrentFolder(string name);
+        
     }
 }

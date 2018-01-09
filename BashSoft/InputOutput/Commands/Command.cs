@@ -12,9 +12,8 @@ namespace BashSoft.InputOutput.Commands
     {
         private string input;
         private string[] data;
-        private Tester judge;
+        private IContentComparer judge;
         private IDirectoryManager manager;
-        private StudentRepository repository;
 
         public string Input
         {
@@ -42,7 +41,7 @@ namespace BashSoft.InputOutput.Commands
             }
         }
 
-        protected Tester Judge
+        protected IContentComparer Judge
         {
             get { return this.judge; }
         }
@@ -52,17 +51,11 @@ namespace BashSoft.InputOutput.Commands
             get { return this.manager; }
         }
 
-        protected StudentRepository Repository
-        {
-            get { return this.repository; }
-        }
-
-        public Command(string input, string[] data, Tester judge, StudentRepository repository, IDirectoryManager manager)
+        public Command(string input, string[] data, IContentComparer judge, IDirectoryManager manager)
         {
             this.Input = input;
             this.Data = data;
             this.judge = judge;
-            this.repository = repository;
             this.manager = manager;
         }
 
