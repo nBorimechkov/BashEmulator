@@ -12,7 +12,7 @@ namespace BashSoft.InputOutput.Commands
     {
         private string input;
         private string[] data;
-        private IContentComparer judge;
+        
         private IDirectoryManager manager;
 
         public string Input
@@ -41,21 +41,15 @@ namespace BashSoft.InputOutput.Commands
             }
         }
 
-        protected IContentComparer Judge
-        {
-            get { return this.judge; }
-        }
-
         protected IDirectoryManager Manager
         {
             get { return this.manager; }
         }
 
-        public Command(string input, string[] data, IContentComparer judge, IDirectoryManager manager)
+        public Command(string input, string[] data, IDirectoryManager manager)
         {
             this.Input = input;
             this.Data = data;
-            this.judge = judge;
             this.manager = manager;
         }
 

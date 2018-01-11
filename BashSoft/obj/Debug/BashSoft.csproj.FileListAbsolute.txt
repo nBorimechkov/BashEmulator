@@ -30,3 +30,9 @@ C:\Users\Nikolay\Documents\Visual Studio 2015\Projects\BashEmulator\BashSoft\obj
 C:\Users\Nikolay\Documents\Visual Studio 2015\Projects\BashEmulator\BashSoft\bin\Debug\BashSoft.exe.config
 C:\Users\Nikolay\Documents\Visual Studio 2015\Projects\BashEmulator\BashSoft\bin\Debug\BashSoft.exe
 C:\Users\Nikolay\Documents\Visual Studio 2015\Projects\BashEmulator\BashSoft\bin\Debug\BashSoft.pdb
+C:\Users\Basedd\Desktop\BashEmulator\BashSoft\bin\Debug\BashSoft.exe.config
+C:\Users\Basedd\Desktop\BashEmulator\BashSoft\obj\Debug\BashSoft.exe
+C:\Users\Basedd\Desktop\BashEmulator\BashSoft\obj\Debug\BashSoft.pdb
+C:\Users\Basedd\Desktop\BashEmulator\BashSoft\bin\Debug\BashSoft.exe
+C:\Users\Basedd\Desktop\BashEmulator\BashSoft\bin\Debug\BashSoft.pdb
+C:\Users\Basedd\Desktop\BashEmulator\BashSoft\obj\Debug\BashSoft.csprojResolveAssemblyReference.cache

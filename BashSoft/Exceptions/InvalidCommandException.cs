@@ -8,10 +8,7 @@ namespace BashSoft.Exceptions
 {
     class InvalidCommandException : Exception
     {
-        public void DisplayInvalidCommandException(string input)
-        {
-            OutputWriter.DisplayException($"The command {input} is invalid");
-        }
+        public const string InvalidCommand = "The following command is invalid: ";
 
         public InvalidCommandException()
         {

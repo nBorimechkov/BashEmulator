@@ -43,35 +43,38 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Contracts\IContentComparer.cs" />
-    <Compile Include="Contracts\IDirectoryChanger.cs" />
-    <Compile Include="Contracts\IDirectoryCreator.cs" />
-    <Compile Include="Contracts\IDirectoryManager.cs" />
-    <Compile Include="Contracts\IDirectoryTraverser.cs" />
+    <Compile Include="Contracts\DirectoryAndFileInterfaces\IDirectoryChanger.cs" />
+    <Compile Include="Contracts\DirectoryAndFileInterfaces\IDirectoryCreator.cs" />
+    <Compile Include="Contracts\DirectoryAndFileInterfaces\IDirectoryManager.cs" />
+    <Compile Include="Contracts\DirectoryAndFileInterfaces\IDirectoryMover.cs" />
+    <Compile Include="Contracts\DirectoryAndFileInterfaces\IDirectoryTraverser.cs" />
     <Compile Include="Contracts\IExecutable.cs" />
+    <Compile Include="Contracts\DirectoryAndFileInterfaces\IFileCopier.cs" />
+    <Compile Include="Contracts\DirectoryAndFileInterfaces\IFileCreator.cs" />
     <Compile Include="Contracts\IInterpreter.cs" />
     <Compile Include="Contracts\IReader.cs" />
+    <Compile Include="Contracts\DirectoryAndFileInterfaces\IRemover.cs" />
     <Compile Include="Exceptions\InvalidCommandException.cs" />
     <Compile Include="Exceptions\InvalidFileNameException.cs" />
     <Compile Include="Exceptions\InvalidPathException.cs" />
     <Compile Include="Exceptions\InvalidStringException.cs" />
-    <Compile Include="InputOutput\Commands\ChangePathCommand.cs" />
+    <Compile Include="InputOutput\Commands\ChangeDirectoryCommand.cs" />
     <Compile Include="InputOutput\Commands\Command.cs" />
-    <Compile Include="InputOutput\Commands\DeleteCommand.cs" />
+    <Compile Include="InputOutput\Commands\CopyFileCommand.cs" />
+    <Compile Include="InputOutput\Commands\CreateFileCommand.cs" />
+    <Compile Include="InputOutput\Commands\MoveCommand.cs" />
+    <Compile Include="InputOutput\Commands\RemoveCommand.cs" />
     <Compile Include="InputOutput\Commands\GetHelpCommand.cs" />
-    <Compile Include="InputOutput\Commands\MakeDirectoryCommand.cs" />
+    <Compile Include="InputOutput\Commands\CreateDirectoryCommand.cs" />
     <Compile Include="InputOutput\Commands\OpenFileCommand.cs" />
-    <Compile Include="InputOutput\Commands\TraverseFoldersCommand.cs" />
-    <Compile Include="InputOutput\Commands\CompareFilesCommand.cs" />
+    <Compile Include="InputOutput\Commands\TraverseDirectoryCommand.cs" />
     <Compile Include="InputOutput\CommandInterpreter.cs" />
     <Compile Include="InputOutput\InputReader.cs" />
     <Compile Include="StaticData\SessionData.cs" />
-    <Compile Include="StaticData\ExceptionMessages.cs" />
     <Compile Include="InputOutput\IOManager.cs" />
     <Compile Include="InputOutput\OutputWriter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tester.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

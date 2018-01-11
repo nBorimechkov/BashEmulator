@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace BashSoft.Contracts
 {
-    public interface IDirectoryCreator
+    public interface IFileCreator
     {
-        void CreateDirectoryInCurrentFolder(string name);
-
-        void DeleteDirectoryInCurrentFolder(string name);
+        void CreateFileInCurrentFolder(string path);
     }
 }

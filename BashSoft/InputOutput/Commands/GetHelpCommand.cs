@@ -10,8 +10,8 @@ namespace BashSoft.InputOutput.Commands
 {
     class GetHelpCommand : Command
     {
-        public GetHelpCommand(string input, string[] data, IContentComparer judge, IDirectoryManager manager) 
-            : base(input, data, judge, manager)
+        public GetHelpCommand(string input, string[] data, IDirectoryManager manager) 
+            : base(input, data, manager)
         {
 
         }

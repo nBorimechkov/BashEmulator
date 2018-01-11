@@ -8,11 +8,11 @@ namespace BashSoft.Exceptions
 {
     class InvalidPathException : Exception
     {
-        public const string InvalidPath = "The folder/file you are trying to access at the current address, does not exist.";
+        public const string InvalidPath = "The folder/file you are trying to access at the current address does not exist.";
 
         public InvalidPathException()
         {
-
+            OutputWriter.DisplayException(InvalidPath);
         }
 
         public InvalidPathException(string message)

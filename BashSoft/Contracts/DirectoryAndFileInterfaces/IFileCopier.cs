@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace BashSoft.Contracts
 {
-    public interface IContentComparer
+    public interface IFileCopier
     {
-        void CompareContent(string userOutputPath, string expectedOutputPath);
+        void CopyFile(string sourcePath, string destinationPath);
     }
 }

@@ -38,6 +38,40 @@ namespace BashSoft
         
         }
 
+        public void ChangeCurrentDirectory(string path)
+        {
+            string currentPath = SessionData.currentPath;
+            // one up
+            if (path == "..")
+            {
+                int indexOfLastSlash = currentPath.LastIndexOf("\\");
+                string newPath = currentPath.Substring(0, indexOfLastSlash);
+                SessionData.currentPath = newPath;
+            }
+
+            // Absolute path
+            else if (Path.IsPathRooted(path))
+            {
+                if (!Directory.Exists(path))
+                {
+                    throw new InvalidPathException();
+                }
+                SessionData.currentPath = path;
+            }
+
+            // Relative path
+            else
+            {
+                currentPath += "\\" + path;
+                if (!Directory.Exists(currentPath))
+                {
+                    throw new InvalidPathException("duhai");
+                }
+                SessionData.currentPath = currentPath;
+
+            }
+        }
+
         public void CreateDirectoryInCurrentFolder(string name)
         {
             string path = SessionData.GetCurrentDirectoryPath() + "\\" + name;
@@ -51,12 +85,12 @@ namespace BashSoft
             }
         }
 
-        public void DeleteDirectoryInCurrentFolder(string name)
+        public void CreateFileInCurrentFolder(string name)
         {
             string path = SessionData.GetCurrentDirectoryPath() + "\\" + name;
             try
             {
-                Directory.Delete(path);
+                File.Create(path);
             }
             catch (ArgumentException)
             {
@@ -64,43 +98,73 @@ namespace BashSoft
             }
         }
 
-        public void ChangeCurrentDirectory(string path)
+        public void CopyFile(string fileName, string destinationPath)
         {
             string currentPath = SessionData.currentPath;
-            if (path == "..")
+            string sourcePath = currentPath + "\\" + fileName;
+            destinationPath = destinationPath + "\\" + fileName;
+            try
+            {
+                File.Copy(sourcePath, destinationPath);
+            }
+            catch (Exception ex)
+            {
+                OutputWriter.DisplayException(ex.Message);
+            }
+        }
+
+        public void Move(string toMove, string destinationPath)
+        {
+            string currentPath = SessionData.currentPath;
+            string sourcePath = currentPath + "\\" + toMove;
+            destinationPath = destinationPath + "\\" + toMove;
+            try
+            {
+                Directory.Move(sourcePath, destinationPath);
+            }
+            catch (ArgumentException)
+            {
+                throw new InvalidFileNameException();
+            }
+        }
+
+        public void Remove(string path)
+        {
+            if (Directory.Exists(path))
             {
                 try
                 {
-                    int indexOfLastSlash = currentPath.LastIndexOf("\\");
-                    string newPath = currentPath.Substring(0, indexOfLastSlash);
-                    SessionData.currentPath = newPath;
-                }
-                catch (Exception ex)
-                {
-                    OutputWriter.DisplayException(ex.Message);
-                }
-            }
-            // Absolute path
-            else if (Path.IsPathRooted(path))
-            {
-                Console.WriteLine(path);
-                if (!Directory.Exists(path))
-                {
-                    throw new InvalidPathException();
-                }
-                SessionData.currentPath = path;
-            }
-            // Relative path
-            else 
-            {
-                currentPath += "\\" + path;
-                if (!Directory.Exists(currentPath))
-                {
-                    throw new InvalidPathException();
-                }
-                SessionData.currentPath = currentPath;
+                    Directory.Delete(path);
 
+                }
+                catch (Exception e)
+                {
+                    OutputWriter.DisplayException(e.Message);
+                }
             }
+            else if (File.Exists(path))
+            {
+                try
+                {
+                    File.Delete(path);
+
+                }
+                catch (Exception e)
+                {
+                    OutputWriter.DisplayException(e.Message);
+                }
+            }
+        }
+
+        private string FixPathContainingWhitespaces(string[] path)
+        {
+            IList<string> pathPieces = new List<string>();
+            for (int i = 1; i < path.Length; i++)
+            {
+                pathPieces.Add(path[i]);
+            }
+            string finalPath = string.Join(" ", pathPieces);
+            return finalPath;
         }
     }
 }

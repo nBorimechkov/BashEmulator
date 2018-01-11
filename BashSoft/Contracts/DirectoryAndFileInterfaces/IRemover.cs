@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace BashSoft.Contracts
 {
-    public interface IDirectoryChanger
+    public interface IRemover
     {
-        void ChangeCurrentDirectory(string path);
-        
+        void Remove(string path);
     }
 }

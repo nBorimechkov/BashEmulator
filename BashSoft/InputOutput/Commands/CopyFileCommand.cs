@@ -3,28 +3,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BashSoft.Exceptions;
 using BashSoft.Contracts;
+using BashSoft.Exceptions;
 
 namespace BashSoft.InputOutput.Commands
 {
-    class MakeDirectoryCommand : Command
+    class CopyFileCommand : Command
     {
-        public MakeDirectoryCommand(string input, string[] data, IContentComparer judge, IDirectoryManager manager) : base(input, data, judge, manager)
+        public CopyFileCommand(string input, string[] data, IDirectoryManager manager) : base(input, data, manager)
         {
 
         }
 
         public override void Execute()
         {
-            if (this.Data.Length != 2)
+            if (this.Data.Length != 3)
             {
                 throw new InvalidCommandException(this.Input);
             }
 
-            string folderName = this.Data[1];
-            this.Manager.CreateDirectoryInCurrentFolder(folderName);
+            string fileName = this.Data[1];
+            string destinationName = this.Data[2];
+            this.Manager.CopyFile(fileName, destinationName);
         }
     }
 }
-

@@ -13,12 +13,11 @@ namespace BashSoft
 {
     class CommandInterpreter : IInterpreter
     {
-        private IContentComparer judge;
+        
         private IDirectoryManager manager;
 
-        public CommandInterpreter(IContentComparer judge, IDirectoryManager manager)
+        public CommandInterpreter(IDirectoryManager manager)
         {
-            this.judge = judge;
             this.manager = manager;
         }
 
@@ -34,7 +33,7 @@ namespace BashSoft
             }
             catch (InvalidCommandException ex)
             {
-                OutputWriter.DisplayException($"The command {ex.Message} is invalid.");
+                OutputWriter.DisplayException(InvalidCommandException.InvalidCommand + ex.Message);
             } 
         }
 
@@ -43,20 +42,23 @@ namespace BashSoft
             switch (command)
             {
                 case "open":
-                    return new OpenFileCommand(input, data, this.judge, this.manager);
+                    return new OpenFileCommand(input, data, this.manager);
                 case "rm":
-                    return new DeleteCommand(input, data, this.judge, this.manager);
+                    return new RemoveCommand(input, data, this.manager);
+                case "mv":
+                    return new MoveCommand(input, data, this.manager);
+                case "cp":
+                    return new CopyFileCommand(input, data, this.manager);
                 case "mkdir":
-                    return new MakeDirectoryCommand(input, data, this.judge, this.manager);
+                    return new CreateDirectoryCommand(input, data, this.manager);
+                case "mkfile":
+                    return new CreateFileCommand(input, data, this.manager);
                 case "ls":
-                    return new TraverseFoldersCommand(input, data, this.judge, this.manager);
-                case "cmp":
-                    return new CompareFilesCommand(input, data, this.judge, this.manager);
+                    return new TraverseDirectoryCommand(input, data, this.manager);
                 case "cd":
-                    return new ChangePathCommand(input, data, this.judge, this.manager);
+                    return new ChangeDirectoryCommand(input, data, this.manager);
                 case "help":
-                    return new GetHelpCommand(input, data, this.judge, this.manager);
-                case "show":
+                    return new GetHelpCommand(input, data, this.manager);
                 //case "decorder":
                 //    tryfdsfds(input, data);
                 //    break;

@@ -11,8 +11,8 @@ namespace BashSoft.InputOutput.Commands
 {
     class OpenFileCommand : Command
     {
-        public OpenFileCommand(string input, string[] data, IContentComparer judge, IDirectoryManager manager)
-            :base (input, data, judge, manager)
+        public OpenFileCommand(string input, string[] data, IDirectoryManager manager)
+            :base (input, data, manager)
         {
 
         }
@@ -28,7 +28,7 @@ namespace BashSoft.InputOutput.Commands
             {
                 Process.Start(SessionData.currentPath + "\\" + fileName);
             }
-            catch (ArgumentException ex)
+            catch (Exception ex)
             {
                 OutputWriter.DisplayException(ex.Message);
                 
