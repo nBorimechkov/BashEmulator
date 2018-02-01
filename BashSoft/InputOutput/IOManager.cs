@@ -31,9 +31,9 @@ namespace BashSoft
                 }
                 OutputWriter.WriteEmptyLine();
             }
-            catch (UnauthorizedAccessException)
+            catch (UnauthorizedAccessException ex)
             {
-                OutputWriter.DisplayException(ExceptionMessages.UnauthorizedAccess);
+                OutputWriter.DisplayException(ex.Message);
             }
         
         }

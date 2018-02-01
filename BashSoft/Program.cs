@@ -11,9 +11,8 @@ namespace BashSoft
     {
         static void Main(string[] args)
         {
-            IContentComparer tester = new Tester();
             IDirectoryManager ioManager = new IOManager();
-            IInterpreter currentInterpreter = new CommandInterpreter(tester, ioManager);
+            IInterpreter currentInterpreter = new CommandInterpreter(ioManager);
             IReader reader = new InputReader(currentInterpreter);
 
             reader.StartReadingCommands();
