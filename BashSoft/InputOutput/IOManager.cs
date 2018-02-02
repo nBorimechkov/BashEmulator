@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace BashSoft
 {
+    // Command patern, Receiver
     public class IOManager : IDirectoryManager
     {
         public void TraverseDirectory()
@@ -154,17 +155,6 @@ namespace BashSoft
                     OutputWriter.DisplayException(e.Message);
                 }
             }
-        }
-
-        private string FixPathContainingWhitespaces(string[] path)
-        {
-            IList<string> pathPieces = new List<string>();
-            for (int i = 1; i < path.Length; i++)
-            {
-                pathPieces.Add(path[i]);
-            }
-            string finalPath = string.Join(" ", pathPieces);
-            return finalPath;
         }
     }
 }

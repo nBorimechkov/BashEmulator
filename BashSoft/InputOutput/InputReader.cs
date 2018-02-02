@@ -17,6 +17,7 @@ namespace BashSoft
             this.interpreter = interpreter;
         }
 
+        // Command pattern, Invoker
         public void StartReadingCommands()
         {
             string input = string.Empty;  

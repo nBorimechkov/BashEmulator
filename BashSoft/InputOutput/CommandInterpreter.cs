@@ -37,6 +37,7 @@ namespace BashSoft
             } 
         }
 
+        // Command pattern, Client
         private IExecutable ParseCommand(string input, string command, string[] data)
         {
             switch (command)
@@ -59,15 +60,6 @@ namespace BashSoft
                     return new ChangeDirectoryCommand(input, data, this.manager);
                 case "help":
                     return new GetHelpCommand(input, data, this.manager);
-                //case "decorder":
-                //    tryfdsfds(input, data);
-                //    break;
-                //case "download":
-                //    tryfdsfds(input, data);
-                //    break;
-                //case "downloadasync":
-                //    tryfdsfds(input, data);
-                //    break;
                 default:
                     throw new InvalidCommandException(input);
             }

@@ -27,17 +27,15 @@ namespace BashSoft.InputOutput.Commands
 
         private void DisplayHelp()
         {
-            OutputWriter.WriteMessageOnNewLine("traverse directory - ls");
-            OutputWriter.WriteMessageOnNewLine("change directory - cd {..}/{relative or absolute path}");
-            OutputWriter.WriteMessageOnNewLine("create directory - mkdir {folder name} ");
-            OutputWriter.WriteMessageOnNewLine("create file - mkfile {file name}  ");
-            OutputWriter.WriteMessageOnNewLine("open file - open {file name}  ");
-            OutputWriter.WriteMessageOnNewLine("copy file - cp {source path} {destination path}  ");
-            OutputWriter.WriteMessageOnNewLine("move directory/file - mv {source path} {destination path}");
+            OutputWriter.WriteMessageOnNewLine("traverse directory -    ls");
+            OutputWriter.WriteMessageOnNewLine("change directory -      cd {..}/{relative or absolute path}");
+            OutputWriter.WriteMessageOnNewLine("create directory -      mkdir {folder name} ");
+            OutputWriter.WriteMessageOnNewLine("create file -           mkfile {file name}  ");
+            OutputWriter.WriteMessageOnNewLine("open file -             open {file name}  ");
+            OutputWriter.WriteMessageOnNewLine("copy file -             cp {source path} {destination path}  ");
+            OutputWriter.WriteMessageOnNewLine("move directory/file -   mv {source path} {destination path}");
             OutputWriter.WriteMessageOnNewLine("remove directory/file - rm {name}  ");
-            OutputWriter.WriteMessageOnNewLine("download file - download: path of file (saved in current directory)");
-            OutputWriter.WriteMessageOnNewLine("download file asinchronously - downloadAsynch: path of file (save in the current directory)");
-            OutputWriter.WriteMessageOnNewLine("get help – help");
+            OutputWriter.WriteMessageOnNewLine("get help –              help");
             OutputWriter.WriteEmptyLine();
         }
     }
